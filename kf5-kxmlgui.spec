@@ -1,18 +1,18 @@
 # TODO:
 # Not packaged:
 # /etc/xdg/ui
-%define		kdeframever	5.79
+%define		kdeframever	5.80
 %define		qtver		5.9.0
 %define		kfname		kxmlgui
 
 Summary:	Framework for managing menu and toolbar actions
 Name:		kf5-%{kfname}
-Version:	5.79.0
+Version:	5.80.0
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	c57d052f56800b4adb88b3daddd320f6
+# Source0-md5:	d09a1201c1819e2dc68fa6aa75ed1f49
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5DBus-devel >= %{qtver}
@@ -104,7 +104,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc README.md
 /etc/xdg/ui/ui_standards.rc
 %attr(755,root,root) %{_libexecdir}/kf5/ksendbugmail
-%attr(755,root,root) %ghost %{_libdir}/libKF5XmlGui.so.5
+%ghost %{_libdir}/libKF5XmlGui.so.5
 %attr(755,root,root) %{_libdir}/libKF5XmlGui.so.*.*
 %attr(755,root,root) %{_libdir}/qt5/plugins/designer/kxmlgui5widgets.so
 %{_datadir}/qlogging-categories5/kxmlgui.categories
@@ -115,5 +115,5 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/KF5/KXmlGui
 %{_includedir}/KF5/kxmlgui_version.h
 %{_libdir}/cmake/KF5XmlGui
-%attr(755,root,root) %{_libdir}/libKF5XmlGui.so
+%{_libdir}/libKF5XmlGui.so
 %{qt5dir}/mkspecs/modules/qt_KXmlGui.pri

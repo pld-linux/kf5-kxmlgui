@@ -2,7 +2,7 @@
 # Not packaged:
 # /etc/xdg/ui
 %define		kdeframever	5.80
-%define		qtver		5.9.0
+%define		qtver		5.14.0
 %define		kfname		kxmlgui
 
 Summary:	Framework for managing menu and toolbar actions
@@ -16,38 +16,45 @@ Source0:	http://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{ve
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5DBus-devel >= %{qtver}
-BuildRequires:	Qt5Gui-devel >= %{qtver}
 BuildRequires:	Qt5Network-devel >= %{qtver}
 BuildRequires:	Qt5PrintSupport-devel >= %{qtver}
 BuildRequires:	Qt5Test-devel >= %{qtver}
 BuildRequires:	Qt5Widgets-devel >= %{qtver}
 BuildRequires:	Qt5Xml-devel >= %{qtver}
-BuildRequires:	cmake >= 2.8.12
-BuildRequires:	gettext-devel
+BuildRequires:	cmake >= 3.5
 BuildRequires:	kf5-attica-devel >= %{version}
 BuildRequires:	kf5-extra-cmake-modules >= %{version}
-BuildRequires:	kf5-kauth-devel >= %{version}
-BuildRequires:	kf5-kcodecs-devel >= %{version}
-BuildRequires:	kf5-kcompletion-devel >= %{version}
 BuildRequires:	kf5-kconfig-devel >= %{version}
 BuildRequires:	kf5-kconfigwidgets-devel >= %{version}
 BuildRequires:	kf5-kcoreaddons-devel >= %{version}
-BuildRequires:	kf5-kdbusaddons-devel >= %{version}
 BuildRequires:	kf5-kglobalaccel-devel >= %{version}
 BuildRequires:	kf5-kguiaddons-devel >= %{version}
 BuildRequires:	kf5-ki18n-devel >= %{version}
 BuildRequires:	kf5-kiconthemes-devel >= %{version}
 BuildRequires:	kf5-kitemviews-devel >= %{version}
-BuildRequires:	kf5-kservice-devel >= %{version}
 BuildRequires:	kf5-ktextwidgets-devel >= %{version}
 BuildRequires:	kf5-kwidgetsaddons-devel >= %{version}
-BuildRequires:	kf5-kwindowsystem-devel >= %{version}
-BuildRequires:	kf5-sonnet-devel >= %{version}
 BuildRequires:	ninja
 BuildRequires:	rpmbuild(macros) >= 1.164
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
+Requires:	Qt5Core >= %{qtver}
+Requires:	Qt5DBus >= %{qtver}
+Requires:	Qt5Network >= %{qtver}
+Requires:	Qt5PrintSupport >= %{qtver}
+Requires:	Qt5Widgets >= %{qtver}
+Requires:	Qt5Xml >= %{qtver}
+Requires:	kf5-attica >= %{version}
 Requires:	kf5-dirs
+Requires:	kf5-kconfig >= %{version}
+Requires:	kf5-kconfigwidgets >= %{version}
+Requires:	kf5-kcoreaddons >= %{version}
+Requires:	kf5-kglobalaccel >= %{version}
+Requires:	kf5-kguiaddons >= %{version}
+Requires:	kf5-ki18n >= %{version}
+Requires:	kf5-kiconthemes >= %{version}
+Requires:	kf5-kitemviews >= %{version}
+Requires:	kf5-kwidgetsaddons >= %{version}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		qt5dir		%{_libdir}/qt5
@@ -66,7 +73,7 @@ Requires:	%{name} = %{version}-%{release}
 Requires:	Qt5DBus-devel >= %{qtver}
 Requires:	Qt5Widgets-devel >= %{qtver}
 Requires:	Qt5Xml-devel >= %{qtver}
-Requires:	cmake >= 2.6.0
+Requires:	cmake >= 3.5
 Requires:	kf5-kconfig-devel >= %{version}
 Requires:	kf5-kconfigwidgets-devel >= %{version}
 

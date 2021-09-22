@@ -2,7 +2,7 @@
 # Not packaged:
 # /etc/xdg/ui
 %define		kdeframever	5.86
-%define		qtver		5.14.0
+%define		qtver		5.15.2
 %define		kfname		kxmlgui
 
 Summary:	Framework for managing menu and toolbar actions
@@ -21,8 +21,7 @@ BuildRequires:	Qt5PrintSupport-devel >= %{qtver}
 BuildRequires:	Qt5Test-devel >= %{qtver}
 BuildRequires:	Qt5Widgets-devel >= %{qtver}
 BuildRequires:	Qt5Xml-devel >= %{qtver}
-BuildRequires:	cmake >= 3.5
-BuildRequires:	kf5-attica-devel >= %{version}
+BuildRequires:	cmake >= 3.16
 BuildRequires:	kf5-extra-cmake-modules >= %{version}
 BuildRequires:	kf5-kconfig-devel >= %{version}
 BuildRequires:	kf5-kconfigwidgets-devel >= %{version}
@@ -44,7 +43,6 @@ Requires:	Qt5Network >= %{qtver}
 Requires:	Qt5PrintSupport >= %{qtver}
 Requires:	Qt5Widgets >= %{qtver}
 Requires:	Qt5Xml >= %{qtver}
-Requires:	kf5-attica >= %{version}
 Requires:	kf5-dirs
 Requires:	kf5-kconfig >= %{version}
 Requires:	kf5-kconfigwidgets >= %{version}
@@ -73,7 +71,7 @@ Requires:	%{name} = %{version}-%{release}
 Requires:	Qt5DBus-devel >= %{qtver}
 Requires:	Qt5Widgets-devel >= %{qtver}
 Requires:	Qt5Xml-devel >= %{qtver}
-Requires:	cmake >= 3.5
+Requires:	cmake >= 3.16
 Requires:	kf5-kconfig-devel >= %{version}
 Requires:	kf5-kconfigwidgets-devel >= %{version}
 

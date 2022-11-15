@@ -11,7 +11,7 @@
 Summary:	Framework for managing menu and toolbar actions
 Name:		kf5-%{kfname}
 Version:	5.100.0
-Release:	1
+Release:	2
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
@@ -106,7 +106,7 @@ rm -rf $RPM_BUILD_ROOT
 %ninja_install -C build
 
 # not supported by glibc yet
-%{__rm} -rf $RPM_BUILD_ROOT%{_localedir}/tok
+%{__rm} -rf $RPM_BUILD_ROOT%{_localedir}/{ie,tok}
 
 %find_lang %{kfname}5
 

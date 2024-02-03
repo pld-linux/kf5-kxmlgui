@@ -4,26 +4,26 @@
 # TODO:
 # Not packaged:
 # /etc/xdg/ui
-%define		kdeframever	5.114
+%define		kdeframever	5.249.0
 %define		qtver		5.15.2
 %define		kfname		kxmlgui
 
 Summary:	Framework for managing menu and toolbar actions
 Name:		kf5-%{kfname}
-Version:	5.114.0
-Release:	1
+Version:	5.249.0
+Release:	0.1
 License:	LGPL v2.1+
 Group:		X11/Libraries
-Source0:	https://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	0e82d262cb9d08755d8ece168fc31022
+Source0:	https://download.kde.org/unstable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
+# Source0-md5:	6110faf3961034841798d32f4d89b6bf
 URL:		http://www.kde.org/
-BuildRequires:	Qt5Core-devel >= %{qtver}
-BuildRequires:	Qt5DBus-devel >= %{qtver}
-BuildRequires:	Qt5Network-devel >= %{qtver}
-BuildRequires:	Qt5PrintSupport-devel >= %{qtver}
-BuildRequires:	Qt5Test-devel >= %{qtver}
-BuildRequires:	Qt5Widgets-devel >= %{qtver}
-BuildRequires:	Qt5Xml-devel >= %{qtver}
+BuildRequires:	Qt6Core-devel >= %{qtver}
+BuildRequires:	Qt6DBus-devel >= %{qtver}
+BuildRequires:	Qt6Network-devel >= %{qtver}
+BuildRequires:	Qt6PrintSupport-devel >= %{qtver}
+BuildRequires:	Qt6Test-devel >= %{qtver}
+BuildRequires:	Qt6Widgets-devel >= %{qtver}
+BuildRequires:	Qt6Xml-devel >= %{qtver}
 BuildRequires:	cmake >= 3.16
 BuildRequires:	kf5-extra-cmake-modules >= %{version}
 BuildRequires:	kf5-kconfig-devel >= %{version}
@@ -40,12 +40,12 @@ BuildRequires:	ninja
 BuildRequires:	rpmbuild(macros) >= 1.736
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
-Requires:	Qt5Core >= %{qtver}
-Requires:	Qt5DBus >= %{qtver}
-Requires:	Qt5Network >= %{qtver}
-Requires:	Qt5PrintSupport >= %{qtver}
-Requires:	Qt5Widgets >= %{qtver}
-Requires:	Qt5Xml >= %{qtver}
+Requires:	Qt6Core >= %{qtver}
+Requires:	Qt6DBus >= %{qtver}
+Requires:	Qt6Network >= %{qtver}
+Requires:	Qt6PrintSupport >= %{qtver}
+Requires:	Qt6Widgets >= %{qtver}
+Requires:	Qt6Xml >= %{qtver}
 Requires:	kf5-dirs
 Requires:	kf5-kconfig >= %{version}
 Requires:	kf5-kconfigwidgets >= %{version}
@@ -58,7 +58,7 @@ Requires:	kf5-kitemviews >= %{version}
 Requires:	kf5-kwidgetsaddons >= %{version}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		qt5dir		%{_libdir}/qt5
+%define		qt6dir		%{_libdir}/qt6
 
 %description
 KXMLGUI provides a framework for managing menu and toolbar actions in
@@ -71,9 +71,9 @@ Summary:	Header files for %{kfname} development
 Summary(pl.UTF-8):	Pliki nagłówkowe dla programistów używających %{kfname}
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	Qt5DBus-devel >= %{qtver}
-Requires:	Qt5Widgets-devel >= %{qtver}
-Requires:	Qt5Xml-devel >= %{qtver}
+Requires:	Qt6DBus-devel >= %{qtver}
+Requires:	Qt6Widgets-devel >= %{qtver}
+Requires:	Qt6Xml-devel >= %{qtver}
 Requires:	cmake >= 3.16
 Requires:	kf5-kconfig-devel >= %{version}
 Requires:	kf5-kconfigwidgets-devel >= %{version}
@@ -107,7 +107,7 @@ rm -rf $RPM_BUILD_ROOT
 # not supported by glibc yet
 %{__rm} -rf $RPM_BUILD_ROOT%{_localedir}/{ie,tok}
 
-%find_lang %{kfname}5
+%find_lang %{kfname}6
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -115,20 +115,17 @@ rm -rf $RPM_BUILD_ROOT
 %post -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
 
-%files -f %{kfname}5.lang
+%files -f %{kfname}6.lang
 %defattr(644,root,root,755)
 %doc README.md
-/etc/xdg/ui/ui_standards.rc
-%attr(755,root,root) %{_libexecdir}/kf5/ksendbugmail
-%ghost %{_libdir}/libKF5XmlGui.so.5
-%attr(755,root,root) %{_libdir}/libKF5XmlGui.so.*.*
-%attr(755,root,root) %{_libdir}/qt5/plugins/designer/kxmlgui5widgets.so
-%{_datadir}/qlogging-categories5/kxmlgui.categories
-%{_datadir}/qlogging-categories5/kxmlgui.renamecategories
+%ghost %{_libdir}/libKF6XmlGui.so.6
+%attr(755,root,root) %{_libdir}/libKF6XmlGui.so.*.*
+%attr(755,root,root) %{_libdir}/qt6/plugins/designer/kxmlgui6widgets.so
+%{_datadir}/qlogging-categories6/kxmlgui.categories
+%{_datadir}/qlogging-categories6/kxmlgui.renamecategories
 
 %files devel
 %defattr(644,root,root,755)
-%{_includedir}/KF5/KXmlGui
-%{_libdir}/cmake/KF5XmlGui
-%{_libdir}/libKF5XmlGui.so
-%{qt5dir}/mkspecs/modules/qt_KXmlGui.pri
+%{_includedir}/KF6/KXmlGui
+%{_libdir}/cmake/KF6XmlGui
+%{_libdir}/libKF6XmlGui.so
